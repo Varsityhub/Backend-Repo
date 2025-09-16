@@ -12,5 +12,5 @@ export const newUserValidate = Joi.object<UserAttributes>({
     .min(8)
     .pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&#])"))
     .required(),
-  departmentId: Joi.number().integer().required(),
+  departmentId: Joi.string().required(),
 });
