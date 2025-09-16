@@ -1,6 +1,8 @@
 import { Router } from "express";
+import { createNewUser } from "../controllers/Auth.controllers";
 
-const User = Router()
+const Auth = Router()
 
+Auth.post("/register",createNewUser)
 
-export default User
+export default Auth
