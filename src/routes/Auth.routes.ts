@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createNewUser, login, verifyOTP } from "../controllers/Auth.controllers";
+import { createNewUser, login, verifyOTP ,requestRegisterOTP,forgotPassword,requestForgotOTP} from "../controllers/Auth.controllers";
 
 const Auth = Router()
 
@@ -11,7 +11,11 @@ Auth.post("/verify",verifyOTP)
 
 Auth.post("/login",login)
 
-//Request otp again if the did not receive the first one 
+Auth.post("/request-registerotp",requestRegisterOTP)
+
+Auth.post("/forgot",forgotPassword)
+
+Auth.post("/request-forgototp",requestForgotOTP)
 
 
 

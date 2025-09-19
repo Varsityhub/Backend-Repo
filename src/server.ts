@@ -3,6 +3,7 @@ import express from "express";
 import { errorHandler } from "./middlewares/errorHandler";
 
 import rootRouter from "./routes";
+import { setupAssociations } from "./models";
 
 const app = express();
 const PORT: number = 4000;
@@ -16,8 +17,10 @@ app.use(errorHandler);
 
 SequelizeConfig.sync()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server running on ${PORT}`);
+    setupAssociations().then(() => {
+      app.listen(PORT, () => {
+        console.log(`Server running on ${PORT}`);
+      });
     });
   })
   .catch((err) => {

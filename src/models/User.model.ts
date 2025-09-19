@@ -13,7 +13,7 @@ const User = SequelizeConfig.define<UserInstance>(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      
     },
     firstname: {
       type: DataTypes.STRING,
@@ -35,14 +35,7 @@ const User = SequelizeConfig.define<UserInstance>(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    otp:{
-        type:DataTypes.STRING,
-        allowNull:true
-    },
-    otpExpires:{
-        type:DataTypes.DATE,
-        allowNull:true
-    },
+  
     isVerified:{
         type:DataTypes.BOOLEAN,
       defaultValue:false,
