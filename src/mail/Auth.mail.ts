@@ -3,7 +3,7 @@ import { generateOTPEmailHTML,generateOTPForForgotPassword } from "../templates/
 export const SendOTP = async(email:string,otp:string,expiry:string)=>{
  await sendMail({
     to:email,
-    subject:`Welcome to SalesGale`,
+    subject:`Welcome to the family.`,
     from:process.env.APP_EMAIL,
     html:generateOTPEmailHTML(otp,expiry)
  })

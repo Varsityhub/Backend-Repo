@@ -7,8 +7,10 @@ export interface UserAttributes {
     departmentId:string,
     level:string,
     password:string,
-    otp:string,
-    otpExpires:Date,
+    otp:string | null,
+    otpExpires:Date | null,
+    isVerified?:boolean,
+    deletedAt?:Date
 }
 
 

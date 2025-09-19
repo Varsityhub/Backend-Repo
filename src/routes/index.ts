@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import Department from "./Department.routes";
-import Auth from "./User.routes";
+import Auth from "./Auth.routes";
 
 const rootRouter = Router();
 

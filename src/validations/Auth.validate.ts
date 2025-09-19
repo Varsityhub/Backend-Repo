@@ -14,3 +14,13 @@ export const newUserValidate = Joi.object<UserAttributes>({
     .required(),
   departmentId: Joi.string().required(),
 });
+
+export const validateVerifyOTP = Joi.object({
+    email: Joi.string().email().required(),
+    otp:Joi.string().required(),
+}).min(1).required()
+
+export const validateLogin = Joi.object({
+    email: Joi.string().email().required(),
+    password:Joi.string().required()
+})

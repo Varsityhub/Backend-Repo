@@ -42,6 +42,11 @@ const User = SequelizeConfig.define<UserInstance>(
     otpExpires:{
         type:DataTypes.DATE,
         allowNull:true
+    },
+    isVerified:{
+        type:DataTypes.BOOLEAN,
+      defaultValue:false,
+      allowNull:false
     }
   },
   {
