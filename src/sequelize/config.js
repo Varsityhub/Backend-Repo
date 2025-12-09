@@ -1,4 +1,4 @@
-// const fs = require("fs");
+const fs = require("fs");
 // const dotenv = require("dotenv");
 // dotenv.config();
 
@@ -39,6 +39,7 @@ module.exports = {
       ssl: {
         //Set the property to true on deployment and false if locally
         // rejectUnauthorized:  (!detectEnvironment || detectEnvironment === "production") ? false : true,
+                ca: fs.readFileSync(process.env.CA_PATH) ,
         rejectUnauthorized: true
       },
     },
@@ -61,6 +62,7 @@ module.exports = {
       ssl: {
         require: true,
         rejectUnauthorized: false, // use false for local migrations
+                ca: fs.readFileSync(process.env.CA_PATH) ,
       },
     },
   },
@@ -83,6 +85,7 @@ module.exports = {
     dialectOptions: {
       ssl: {
         require: true,
+                ca: fs.readFileSync(process.env.CA_PATH) ,
         rejectUnauthorized: false, // use false for local migrations
       },
     },
