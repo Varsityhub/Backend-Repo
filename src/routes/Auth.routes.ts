@@ -15,7 +15,7 @@ Auth.post("/request-registerotp",requestRegisterOTP)
 
 Auth.post("/forgot",forgotPassword)
 
-Auth.post("/request-forgototp",requestForgotOTP)
+// Auth.post("/request-forgototp",requestForgotOTP)
 
 
 

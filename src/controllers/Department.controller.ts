@@ -38,3 +38,15 @@ export const newDept = async (
   }
 };
 
+export const getAllDepartments = async(req:Request,res:Response,next:NextFunction)=>{
+
+  try {
+    const allDepartments = await Department.findAll()
+
+    res.status(200).send({message:"Departments fetched succesfully",departments:allDepartments})
+
+  } catch (error) {
+    next(error)
+  }
+
+}

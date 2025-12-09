@@ -387,13 +387,6 @@ export const requestForgotOTP = async (
       res.status(400).send({ message: "User not found." });
       return;
     }
-
-    //Check if user has already been verified
-    if (foundUser.isVerified) {
-      res.status(400).send({ message: "User has been verified already." });
-      return;
-    }
-
     //Check if token specific token exist
     const foundToken = await UserTokens.findOne({
       where: {
@@ -404,7 +397,7 @@ export const requestForgotOTP = async (
 
     const { otp: newOTP, expiry } = getOtpAndExpiry(otpDuration);
     if (!foundToken) {
-      //Create one for them if it was not created
+      
       await UserTokens.create({
         userId: foundUser.id!,
         expiresAt: expiry,

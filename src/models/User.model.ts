@@ -47,3 +47,5 @@ const User = SequelizeConfig.define<UserInstance>(
   }
 );
 export default User
+
+

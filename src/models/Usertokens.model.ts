@@ -8,13 +8,11 @@ const UserTokens = DataTypesConfig.define<UserTokensInstance>(
     id: {
       type: DataTypes.UUID,
       defaultValue:DataTypes.UUIDV4,
-      
       primaryKey: true,
     },
     userId: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique:true
     },
     token: {
       type: DataTypes.STRING,
