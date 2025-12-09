@@ -12,6 +12,7 @@ module.exports = {
     dialect: "mysql",
     dialectOptions: {
       ssl: {
+        require:true,
         ca: fs.readFileSync(process.env.CA_PATH) ,
           rejectUnauthorized: true
       }
