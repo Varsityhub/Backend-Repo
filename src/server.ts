@@ -16,18 +16,9 @@ app.use(`${baseURL}`, rootRouter);
 
 app.use(errorHandler);
 
-app.get("/create/:id",async(req:Request,res:Response,next:NextFunction)=>{
+app.get("/",async(req:Request,res:Response)=>{
 
-  const deptName =req.params.id
-  try {
-    
-    await Department.create({ name:deptName });
-
-    res.status(200).send({message:`${deptName} department created successfully`})
-
-  } catch (error) {
-    next(error)
-  }
+res.send("Home route hit")
 })
 
 SequelizeConfig.sync()

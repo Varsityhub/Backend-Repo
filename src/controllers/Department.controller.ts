@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { validateNewDept } from "../validations/Department.validate";
 import Department from "../models/Department.model";
 import { DepartmentAttributes } from "../types/Department.types";
+import { AuthRequest } from "../types/requests/middlwares";
 
 export const newDept = async (
   req: Request,
@@ -17,6 +18,7 @@ export const newDept = async (
     }
 
     const { name } = req.body as DepartmentAttributes;
+    const user =  (req as AuthRequest).user
 
     // Check if dept exists already
     const foundDept = await Department.findOne({ where: { name } });
@@ -27,7 +29,7 @@ export const newDept = async (
         .send({ message: `Department with name: ${name} already exists.` });
     }
 
-    await Department.create({ name });
+    await Department.create({ name ,userId:user.id});
 
     return res.status(201).send({
       message: "New Department created successfully",
