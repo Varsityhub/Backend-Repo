@@ -7,7 +7,7 @@ import { setupAssociations } from "./models";
 import Department from "./models/Department.model";
 
 const app = express();
-const PORT: number = 4000;
+const PORT = process.env.PORT ||  4000;
 
 app.use(express.json());
 
