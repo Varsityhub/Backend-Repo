@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
     rejectUnauthorized:true
   },
   
-  // secure:process.env.MAIL_PORT === "465" ? true :false,
+  secure:process.env.MAIL_PORT === "465" ? true :false,
   port: parseInt(process.env.MAIL_PORT || "587"),
   auth: {
     user: process.env.MAIL_USER || "api",      

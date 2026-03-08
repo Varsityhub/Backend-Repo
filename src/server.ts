@@ -4,7 +4,7 @@ import { errorHandler } from "./middlewares/errorHandler";
 
 import rootRouter from "./routes";
 import { setupAssociations } from "./models";
-import Department from "./models/Department.model";
+import morgan from "morgan";
 
 const app = express();
 const PORT = process.env.PORT ||  4000;
@@ -12,6 +12,7 @@ const PORT = process.env.PORT ||  4000;
 app.use(express.json());
 
 const baseURL = "/api/v1";
+app.use(morgan("dev"))
 app.use(`${baseURL}`, rootRouter);
 
 app.use(errorHandler);
