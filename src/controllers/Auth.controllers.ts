@@ -78,6 +78,8 @@ export const createNewUser = async (
       .status(201)
       .send({ message: "Check your mail for an OTP.", success: true });
   } catch (error) {
+    console.log("Error in creating new user",error);
+    
     next(error);
   }
 };
